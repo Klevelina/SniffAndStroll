@@ -1,0 +1,32 @@
+# Laravel core
+vendor
+node_modules
+public/hot
+public/storage
+storage/*.key
+bootstrap/cache/*.php
+
+# Environment files
+.env
+.env.backup
+.env.production
+
+# Logs
+*.log
+
+# Laravel misc
+Homestead.json
+Homestead.yaml
+auth.json
+
+# IDE / OS
+.idea
+.vscode
+.phpactor.json
+.phpunit.result.cache
+.phpunit.cache
+.nova
+.fleet
+.zed
+.DS_Store
+Thumbs.db
