@@ -46,4 +46,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function dogs()
+    {
+        return $this->hasMany(Dog::class);
+    }
+
+    public function ownedWalkSessions()
+    {
+        return $this->hasMany(WalkSession::class, 'owner_id');
+    }
+
+    public function walkingSessions()
+    {
+        return $this->hasMany(WalkSession::class, 'walker_id');
+    }
 }
