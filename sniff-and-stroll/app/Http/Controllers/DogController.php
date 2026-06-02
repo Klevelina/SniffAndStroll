@@ -12,7 +12,9 @@ class DogController extends Controller
      */
     public function index()
     {
-        //
+        $dogs = auth()->user()->dogs;
+
+        return view('dogs.index', compact('dogs'));
     }
 
     /**
@@ -20,7 +22,7 @@ class DogController extends Controller
      */
     public function create()
     {
-        //
+        return view('dogs.create');
     }
 
     /**
@@ -28,7 +30,18 @@ class DogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+        ]);
+
+        auth()->user()->dogs()->create([
+            'name' => $request->name,
+            'breed' => $request->breed,
+            'age' => $request->age,
+            'notes' => $request->notes,
+        ]);
+
+        return redirect()->route('dogs.index');
     }
 
     /**
