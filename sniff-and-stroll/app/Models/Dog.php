@@ -18,4 +18,9 @@ class Dog extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function walkSessions()
+    {
+        return $this->hasMany(WalkSession::class);
+    }
 }
