@@ -13,6 +13,27 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/walkers', function () {
+
+    $walkers = \App\Models\User::where('role', 'walker')
+        ->get();
+
+    return view('walkers.index', compact('walkers'));
+});
+
+Route::get('/walker/dashboard', function () {
+
+    $walks = auth()->user()
+        ->walkingSessions()
+        ->with('dog', 'owner')
+        ->get();
+
+    return view(
+        'walker.dashboard',
+        compact('walks')
+    );
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
