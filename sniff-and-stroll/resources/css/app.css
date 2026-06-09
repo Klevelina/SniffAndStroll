@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+    h2 {
+        @apply font-bold text-[52px] text-[#538338];
+        font-family: 'Fraunces',serif;
+    }
+}
