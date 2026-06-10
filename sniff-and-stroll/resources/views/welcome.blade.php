@@ -13,7 +13,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body  class="bg-[#F6F3E8]">
+<body class="bg-[#F6F3E8] scroll-smooth">
 
     <!--Navbar-->
     <nav class="sticky z-50 top-0 w-full  bg-[#2F4730] flex justify-between items-center py-6 px-4 text-white"> 
@@ -21,10 +21,10 @@
             Sniff and Stroll
         </h1>
         <div class = "flex gap-6 text-white" > 
-            <a href="#">Home</a>
-            <a href="#">How it works</a>
-            <a href="#">About us</a>
-            <a href="#">Contact</a>
+            <a href="/">Home</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="/about"> About us</a>
+            <a href="/contact">Contact</a>
         </div>  
 
         <div class = "flex gap-4">
@@ -42,6 +42,7 @@
 
     <!--How does it work section-->
     <section 
+        id="how-it-works"
         class=" bg-[#F6F3E8]">
         <div class=" max-w-8xl mx-auto flex gap-20 px-20">
 
@@ -88,7 +89,7 @@
                 Doreen Green
             </h3>
             <p class="text-center text-[#2F4730] font-semibold mt-2">"Enjoys Long walks with active dogs and outdoor adventures"</p>
-            <button class="block px-4 py-2 mx-auto mt-[50px] bg-[#E8DFC8] rounded-full text-#2F4730 hover:bg-[#C9A27E] transition duration-300 ] ">Book now</button>
+            <button class="block px-4 py-2 mx-auto mt-[50px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300] ">Book now</button>
         </div>
 
         <div class="bg-[#6B8E6E] w-[320px] h-[500px] rounded-xl">
@@ -100,7 +101,7 @@
                     Peni Parker
                 </h3>
                 <p class="text-center text-[#2F4730] font-semibold mt-2  ">"Patient and caring walker for puppies and senior dogs"</p>
-                <button class="block px-4 py-2 mx-auto mt-[50px] bg-[#E8DFC8] rounded-full text-#2F4730 hover:bg-[#C9A27E] transition duration-300 ] ">Book now</button>
+                <button class="block px-4 py-2 mx-auto mt-[50px] bg-[#E8DFC8] rounded-full text-#2F4730 hover:bg-[#C9A27E] transition duration-300] ">Book now</button>
         </div>
 
         <div class="bg-[#6B8E6E] w-[320px] h-[500px] rounded-xl">
