@@ -16,39 +16,34 @@
 <body class="bg-[#F6F3E8] scroll-smooth">
 
     <!--Navbar-->
-    <nav class="sticky z-50 top-0 w-full  bg-[#2F4730] flex justify-between items-center py-6 px-4 text-white"> 
-        <h1 class="font-bold">
-            Sniff and Stroll
-        </h1>
-        <div class = "flex gap-6 text-white" > 
-            <a href="/">Home</a>
-            <a href="#how-it-works">How it works</a>
-            <a href="/about"> About us</a>
-            <a href="/contact">Contact</a>
-        </div>  
-
-        <div class = "flex gap-4">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
-        </div>
-    </nav>
+    @include('profile.partials.navbar')
 
     <!--Background pciture-->
-    <section
-        class="h-[650px] bg-cover bg-center"
-        style="background-image: url('{{ asset('pictures/frontpage.jpg') }}');">
+    <section>
+        <!--Computer screen -->
+        <img
+        src="{{ asset('pictures/frontpage-computer.jpg') }}"
+        alt="Front page"
+        class=" hidden md:block  w-full h-[650px] object-cover lg"/>
+
+        <!-- Phone screen-->
+          <img
+        src="{{ asset('pictures/frontpage-phone.jpg') }}"
+        alt="Front page"
+        class=" block md:hidden w-full h-auto object-cover lg"/>
+    
         <div class="absolute" > </div>
     </section>
 
     <!--How does it work section-->
-    <section 
-        id="how-it-works"
-        class=" bg-[#F6F3E8]">
-        <div class=" max-w-8xl mx-auto flex gap-20 px-20">
+    <section
+        class="mt-[100px]" 
+        id="how-it-works">
+        <div class=" max-w-8xl mx-auto flex flex-col lg:flex-row gap-20 px-20">
 
     
-        <div class="">
-            <h2 class="pt-[100px]"
+        <div class="mt-[20px    ]">
+            <h2 class=" ls-pt-[100px]"
                 data-aos="fade-right">
                 How does it work?
             </h2>
@@ -66,7 +61,7 @@
         <img
             src="{{ asset('pictures/person.jpg') }}"
             alt="Person"
-            class=" pt-[120px] w-[650px] h-[auto] rounded-xl"
+            class=" pt-[120px] w-[650px] h-[auto] rounded-xl hidden md:block"
             data-aos="fade-left">
         </div>
     </section>
