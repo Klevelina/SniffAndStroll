@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\WalkSession;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class WalkSessionController extends Controller
@@ -31,7 +32,13 @@ class WalkSessionController extends Controller
     {
         $dogs = auth()->user()->dogs;
 
-        return view('walk-sessions.create', compact('dogs'));
+        $walkers = User::where('role', 'walker')
+            ->get();
+
+        return view(
+            'walk-sessions.create',
+            compact('dogs', 'walkers')
+        );
     }
 
     /**
@@ -40,14 +47,15 @@ class WalkSessionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'dog_id' => 'required',
+            'dog_id' => 'required|exists:dogs,id',
+            'walker_id' => 'required|exists:users,id',
             'scheduled_at' => 'required|date',
             'duration_minutes' => 'required|integer|min:15',
         ]);
 
         WalkSession::create([
             'owner_id' => auth()->id(),
-            'walker_id' => auth()->id(), // temporary
+            'walker_id' => $request->walker_id,
             'dog_id' => $request->dog_id,
             'scheduled_at' => $request->scheduled_at,
             'duration_minutes' => $request->duration_minutes,

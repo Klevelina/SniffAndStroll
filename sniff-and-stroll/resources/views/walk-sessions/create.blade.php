@@ -15,6 +15,18 @@
 
     <br><br>
 
+    <label>Walker</label>
+
+    <select name="walker_id">
+        @foreach($walkers as $walker)
+            <option value="{{ $walker->id }}">
+                {{ $walker->name }}
+            </option>
+        @endforeach
+    </select>
+
+    <br><br>
+
     <label>Date & Time</label>
 
     <input
