@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('dogs', DogController::class);
     Route::resource('walk-sessions', WalkSessionController::class);
     Route::patch('/walk-sessions/{walkSession}/accept', [WalkerController::class, 'accept'])->name('walk-sessions.accept');
+    Route::patch('/walk-sessions/{walkSession}/decline', [WalkerController::class, 'decline'])->name('walk-sessions.decline');
 });
 
 Route::get('/about',function() {

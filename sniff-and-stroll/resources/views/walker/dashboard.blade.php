@@ -5,11 +5,6 @@
     {{ auth()->user()->name }}
 </p>
 
-<p>
-    Role:
-    {{ auth()->user()->role }}
-</p>
-
 @forelse($walks as $walk)
 
     <div>
@@ -47,6 +42,19 @@
 
                 <button type="submit">
                     Accept Walk
+                </button>
+
+            </form>
+
+            <form
+                method="POST"
+                action="{{ route('walk-sessions.decline', $walk) }}">
+
+                @csrf
+                @method('PATCH')
+
+                <button type="submit">
+                    Decline Walk
                 </button>
 
             </form>

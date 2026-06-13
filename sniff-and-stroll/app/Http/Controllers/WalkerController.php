@@ -34,4 +34,18 @@ class WalkerController extends Controller
         return redirect()
             ->route('walker.dashboard');
     }
+
+    public function decline(WalkSession $walkSession)
+    {
+        if ($walkSession->walker_id !== auth()->id()) {
+            abort(403);
+        }
+
+        $walkSession->update([
+            'status' => 'cancelled'
+        ]);
+
+        return redirect()
+            ->route('walker.dashboard');
+    }
 }
