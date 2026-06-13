@@ -37,18 +37,17 @@
 
     <!--How does it work section-->
     <section
-        class="mt-[100px] lg: scroll-mt-[100px] scroll-mt-[400px]" 
+        class="mt-[100px] lg: scroll-mt-[80px] scroll-mt-[400px]" 
         id="how-it-works">
         <div class=" max-w-8xl mx-auto flex flex-col lg:flex-row gap-20 px-20">
 
-    
         <div class="mt-[20px]">
             <h2 class="text-[26px] lg:text-[42px] text-center lg:text-left ls-pt-[100px]"
                 data-aos="fade-right">
                 How does it work?
             </h2>
 
-            <ol class="list-decimal pl-[25px] text-xl pt-[40px] space-y-5 text-[#2F4730] font-medium"
+            <ol class="list-decimal lg:text-[24px] space-y-8 pl-[25px] text-xl pt-[40px] space-y-5 text-[#2F4730] font-medium"
                 data-aos="fade-right">
             <li> Browse trusted dog walkers in your area and find the perfect match for your pet</li>
             <li> Select a convenient date and time, then send a booking request in just a few clicks</li>
