@@ -1,17 +1,47 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
+        <h1>Owner Dashboard</h1>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
+        <p>
+            Welcome,
+            {{ auth()->user()->name }}
+        </p>
+
+        <p>
+            Role:
+            {{ auth()->user()->role }}
+        </p>
+
+        <hr>
+
+        <ul>
+
+            <li>
+                <a href="{{ route('dogs.index') }}">
+                    My Dogs
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('walk-sessions.index') }}">
+                    My Walk Sessions
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('walk-sessions.create') }}">
+                    Book Walk
+                </a>
+            </li>
+
+        </ul>
+
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <button type="submit">
+                Logout
+            </button>
+        </form>
 </x-app-layout>

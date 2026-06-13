@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,24 +15,39 @@
 <body class="bg-[#F6F3E8] scroll-smooth">
 
     <!--Navbar-->
-    <nav class="sticky z-50 top-0 w-full  bg-[#2F4730] flex justify-between items-center py-6 px-4 text-white"> 
+    <nav class="sticky z-50 top-0 w-full  bg-[#2F4730] flex justify-between items-center py-6 px-4 text-white">
         <h1 class="font-bold">
             Sniff and Stroll
         </h1>
-        <div class = "flex gap-6 text-white" > 
+        <div class = "flex gap-6 text-white" >
             <a href="/">Home</a>
             <a href="#how-it-works">How it works</a>
             <a href="/about"> About us</a>
             <a href="/contact">Contact</a>
-        </div>  
+        </div>
 
         <div class = "flex gap-4">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+            @if(auth()->check())
+                <div>
+                    Logged in as {{ auth()->user()->name }}
+                </div>
+
+                <a href="{{ route('logout') }}"
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+
+                <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display:none;">
+                    @csrf
+                </form>
+            @else
+                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('register') }}">Register</a>
+            @endif
         </div>
     </nav>
 
-    <!--Background pciture-->
+    <!--Background picture-->
     <section
         class="h-[650px] bg-cover bg-center"
         style="background-image: url('{{ asset('pictures/frontpage.jpg') }}');">
@@ -41,12 +55,12 @@
     </section>
 
     <!--How does it work section-->
-    <section 
+    <section
         id="how-it-works"
         class=" bg-[#F6F3E8]">
         <div class=" max-w-8xl mx-auto flex gap-20 px-20">
 
-    
+
         <div class="">
             <h2 class="pt-[100px]"
                 data-aos="fade-right">
@@ -60,7 +74,7 @@
             <li> Track your dog's walk, receive updates, and know they're in safe hands</li>
         </ol>
 
-        </div>  
+        </div>
 
         <!-- Image on right -->
         <img
@@ -71,14 +85,14 @@
         </div>
     </section>
 
-    <!-- Our top walkers heading -->
+    <!-- Our top walker heading -->
     <div class="flex justify-center pt-[110px]">
         <h2>
             Our top walkers:
         </h2>
     </div>
 
-    <!-- Profiles with our top walkers -->
+    <!-- Profiles with our top walker -->
     <section class="flex justify-between items-center pt-[60px] gap-10 px-20 max-w-7xl mx-auto" >
         <div class=" bg-[#6B8E6E] w-[320px] h-[500px] rounded-xl ">
             <div class="bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
@@ -113,7 +127,7 @@
                     Susan Richards
                 </h3>
                 <p class="text-center text-[#2F4730] font-semibold mt-2">"Experienced with all breeds, from tiny companions to large dogs"</p>
-                
+
                 <button class="block px-4 py-2 mx-auto mt-[50px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300 ">Book now</button>
 
         </div>
@@ -122,10 +136,10 @@
     <section class ="w-full">
         <div class=" w-full flex justify-center items-center mt-[150px]">
             <div class="w-1/2 h-[500px]">
-                <img 
+                <img
                     class="w-full h-full object-cover"
                     src="{{ asset('pictures/join_our_team.jpg') }}">
-            </div>  
+            </div>
 
             <div class= "bg-[#E8DFC8] w-1/2 h-[500px]">
                 <div>
@@ -141,7 +155,7 @@
                     <button class="block px-[200px] py-4 mx-auto mt-[70px] bg-[#6B8E6E] rounded-xl text-[20px] text-white font-semibold hover:bg-[#2F4730] transition duration-300">
                         Become a walker
                     </button>
-                
+
                 </div>
             </div>
         </div>
@@ -155,8 +169,8 @@
 </footer>
 
 
-   
-    
+
+
 
 
 </body>
