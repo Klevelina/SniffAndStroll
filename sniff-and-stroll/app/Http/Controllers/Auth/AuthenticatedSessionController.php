@@ -30,15 +30,16 @@ class AuthenticatedSessionController extends Controller
 
         $user = $request->user();
 
-        if ($user->role === 'walker') {
-            return redirect()->intended(
-                route('walker.dashboard', absolute: false)
-            );
-        }
+        switch ($user->role) {
+            case 'admin':
+                return redirect()->intended(route('admin.dashboard'));
 
-        return redirect()->intended(
-            route('owner.dashboard', absolute: false)
-        );
+            case 'walker':
+                return redirect()->intended(route('walker.dashboard'));
+
+            default:
+                return redirect()->intended(route('owner.dashboard'));
+        }
     }
 
     /**
