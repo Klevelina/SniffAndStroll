@@ -74,8 +74,8 @@
     </div>
 
     <!-- Profiles with our top walkers -->
-    <section class="flex justify-between items-center pt-[60px] gap-10 px-20 max-w-7xl mx-auto" >
-        <div class=" bg-[#6B8E6E] w-[320px] h-[500px] rounded-xl ">
+    <section class="flex overflow-x-auto snap-x snap-mandatory lg:overflow-visible lg:justify-between items-center pt-[60px] gap-10 lg:px-20 max-w-7xl mx-auto" >
+        <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[85vw] max-w-[320px] h-[500px] rounded-xl ">
             <div class="bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
             <img
             src="{{ asset('pictures/person1.jpg') }}"
@@ -84,10 +84,10 @@
                 Doreen Green
             </h3>
             <p class="text-center text-[#2F4730] font-semibold mt-2">"Enjoys Long walks with active dogs and outdoor adventures"</p>
-            <button class="block px-4 py-2 mx-auto mt-[50px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300] ">Book now</button>
+            <button class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300] ">Book now</button>
         </div>
 
-        <div class="bg-[#6B8E6E] w-[320px] h-[500px] rounded-xl">
+        <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[85vw] max-w-[320px] h-[500px] rounded-xl">
             <div class=" bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
                 <img
                     src="{{ asset('pictures/person2.jpg') }}"
@@ -96,10 +96,10 @@
                     Peni Parker
                 </h3>
                 <p class="text-center text-[#2F4730] font-semibold mt-2  ">"Patient and caring walker for puppies and senior dogs"</p>
-                <button class="block px-4 py-2 mx-auto mt-[50px] bg-[#E8DFC8] rounded-full text-#2F4730 hover:bg-[#C9A27E] transition duration-300] ">Book now</button>
+                <button class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-#2F4730 hover:bg-[#C9A27E] transition duration-300] ">Book now</button>
         </div>
 
-        <div class="bg-[#6B8E6E] w-[320px] h-[500px] rounded-xl">
+        <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[320px] h-[500px] rounded-xl">
             <div class=" bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
                 <img
                     src="{{ asset('pictures/person3.jpg') }}"
@@ -109,20 +109,20 @@
                 </h3>
                 <p class="text-center text-[#2F4730] font-semibold mt-2">"Experienced with all breeds, from tiny companions to large dogs"</p>
                 
-                <button class="block px-4 py-2 mx-auto mt-[50px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300 ">Book now</button>
+                <button class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300 ">Book now</button>
 
         </div>
     </section>
 
     <section class ="w-full">
-        <div class=" w-full flex justify-center items-center mt-[150px]">
-            <div class="w-1/2 h-[500px]">
+        <div class=" w-full flex flex-col lg:flex-row justify-center items-center mt-[150px]">
+            <div class="w-full lg:w-1/2 lg:h-[500px]">
                 <img 
                     class="w-full h-full object-cover"
                     src="{{ asset('pictures/join_our_team.jpg') }}">
             </div>  
 
-            <div class= "bg-[#E8DFC8] w-1/2 h-[500px]">
+            <div class= "bg-[#E8DFC8] w-full lg:w-1/2 lg:h-[500px]">
                 <div>
                     <h2 class="text-center mt-[20px] text-[#6B8E6E]">
                         Join today
@@ -133,8 +133,8 @@
                         and earn money doing what you enjoy.
                     </p>
 
-                    <button class="block px-[200px] py-4 mx-auto mt-[70px] bg-[#6B8E6E] rounded-xl text-[20px] text-white font-semibold hover:bg-[#2F4730] transition duration-300">
-                        Become a walker
+                    <button class="block w-full h-[100px] lg:h-[80px] lg:w-[400px] py-4 mx-auto mt-[70px] bg-[#6B8E6E] rounded-xl text-[20px] text-white font-semibold hover:bg-[#2F4730] transition duration-300">
+                        Become a walker 
                     </button>
                 
                 </div>
@@ -143,15 +143,7 @@
 
     </section>
 
-    <footer class="bg-[#2F4730] text-white py-6 text-center mt-20">
-    <h3 class="font-bold text-lg">Sniff & Stroll</h3>
-    <p class="mt-2">Making every walk a tail-wagging adventure.</p>
-    <p class="mt-4 text-sm">© 2026 Sniff & Stroll</p>
-</footer>
-
-
-   
-    
+    @include('profile.partials.footer')
 
 
 </body>
