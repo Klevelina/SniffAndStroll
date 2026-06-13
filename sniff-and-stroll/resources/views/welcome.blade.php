@@ -37,7 +37,7 @@
 
     <!--How does it work section-->
     <section
-        class="mt-[100px] lg: scroll-mt-[100px] scroll-mt-[400px]" 
+        class="mt-[100px] lg: scroll-mt-[80px] scroll-mt-[400px]" 
         id="how-it-works">
         <div class=" max-w-8xl mx-auto flex flex-col lg:flex-row gap-20 px-20">
 
