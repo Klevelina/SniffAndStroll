@@ -11,46 +11,78 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 
+/*
+|--------------------------------------------------------------------------
+| Admin Dashboard
+|--------------------------------------------------------------------------
+*/
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->middleware(['auth', 'role:admin'])->name('admin.dashboard');
+
+/*
+|--------------------------------------------------------------------------
+| Owner Dashboard
+|--------------------------------------------------------------------------
+*/
+Route::get('/owner/dashboard', [OwnerController::class, 'dashboard'])
+    ->middleware(['auth', 'role:owner,admin'])
+    ->name('owner.dashboard');
+
+/*
+|--------------------------------------------------------------------------
+| Walker Dashboard
+|--------------------------------------------------------------------------
+*/
+Route::get('/walker/dashboard', [WalkerController::class, 'dashboard'])
+    ->middleware(['auth', 'role:walker,admin'])
+    ->name('walker.dashboard');
+
+/*
+|--------------------------------------------------------------------------
+| Walker Listing (public page)
+|--------------------------------------------------------------------------
+*/
 Route::get('/walker', function () {
 
-    $walkers = \App\Models\User::where('role', 'walker')
-        ->get();
+    $walkers = \App\Models\User::where('role', 'walker')->get();
 
     return view('walker.index', compact('walkers'));
 });
 
-Route::get('/walker/dashboard', function () {
-
-    $walks = auth()->user()
-        ->walkingSessions()
-        ->with('dog', 'owner')
-        ->get();
-
-    return view(
-        'walker.dashboard',
-        compact('walks')
-    );
-});
-
+/*
+|--------------------------------------------------------------------------
+| Authenticated routes
+|--------------------------------------------------------------------------
+*/
 Route::middleware('auth')->group(function () {
-    Route::get('/walker/dashboard', [WalkerController::class, 'dashboard'])->name('walker.dashboard');
-    Route::get('/owner/dashboard', [OwnerController::class, 'dashboard'])->middleware('auth')->name('owner.dashboard');
+
+    // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Dogs
     Route::resource('dogs', DogController::class);
+
+    // Walk sessions
     Route::resource('walk-sessions', WalkSessionController::class);
-    Route::patch('/walk-sessions/{walkSession}/accept', [WalkerController::class, 'accept'])->name('walk-sessions.accept');
-    Route::patch('/walk-sessions/{walkSession}/decline', [WalkerController::class, 'decline'])->name('walk-sessions.decline');
+
+    // Walker actions
+    Route::patch('/walk-sessions/{walkSession}/accept', [WalkerController::class, 'accept'])
+        ->name('walk-sessions.accept');
+
+    Route::patch('/walk-sessions/{walkSession}/decline', [WalkerController::class, 'decline'])
+        ->name('walk-sessions.decline');
 });
 
-Route::get('/about',function() {
-    return view('about');
-})->name('about');
-
-
+/*
+|--------------------------------------------------------------------------
+| Auth routes (Breeze)
+|--------------------------------------------------------------------------
+*/
 require __DIR__.'/auth.php';
