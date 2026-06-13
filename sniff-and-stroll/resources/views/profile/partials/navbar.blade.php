@@ -36,7 +36,7 @@
         </div>
 
         <!-- Phone hamburger -->
-        <button class="md:hidden text-3xl" @click="open = !open">
+        <button class="md:hidden text-5xl mx-4" @click="open = !open">
             ☰
         </button>
 
