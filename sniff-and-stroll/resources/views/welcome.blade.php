@@ -18,22 +18,32 @@
     <!--Navbar-->
     @include('profile.partials.navbar')
 
-    <!--Background picture-->
-    <section
-        class="h-[650px] bg-cover bg-center"
-        style="background-image: url('{{ asset('pictures/frontpage.jpg') }}');">
+    <!--Background pciture-->
+    <section>
+        <!--Computer screen -->
+        <img
+        src="{{ asset('pictures/frontpage-computer.jpg') }}"
+        alt="Front page"
+        class=" hidden md:block  w-full h-[650px] object-cover lg"/>
+
+        <!-- Phone screen-->
+          <img
+        src="{{ asset('pictures/frontpage-phone.jpg') }}"
+        alt="Front page"
+        class=" block md:hidden w-full h-auto object-cover lg"/>
+    
         <div class="absolute" > </div>
     </section>
 
     <!--How does it work section-->
     <section
-        class="mt-[100px]"
+        class="mt-[100px] lg: scroll-mt-[100px] scroll-mt-[400px]" 
         id="how-it-works">
         <div class=" max-w-8xl mx-auto flex flex-col lg:flex-row gap-20 px-20">
 
-
-        <div class="mt-[20px    ]">
-            <h2 class=" ls-pt-[100px]"
+    
+        <div class="mt-[20px]">
+            <h2 class="text-[26px] lg:text-[42px] text-center lg:text-left ls-pt-[100px]"
                 data-aos="fade-right">
                 How does it work?
             </h2>
@@ -45,20 +55,20 @@
             <li> Track your dog's walk, receive updates, and know they're in safe hands</li>
         </ol>
 
-        </div>
+        </div>  
 
         <!-- Image on right -->
         <img
             src="{{ asset('pictures/person.jpg') }}"
             alt="Person"
-            class=" pt-[120px] w-[650px] h-[auto] rounded-xl"
+            class=" pt-[120px] w-[650px] h-[auto] rounded-xl hidden md:block"
             data-aos="fade-left">
         </div>
     </section>
 
     <!-- Our top walkers heading -->
-    <div class="flex justify-center pt-[110px]">
-        <h2>
+    <div class="text-center text-[26px] lg:text-[52px] flex justify-center pt-[110px]">
+        <h2 class="text-[30px] lg:text-[52px]">
             Our top walkers:
         </h2>
     </div>
@@ -110,14 +120,14 @@
                 <img 
                     class="w-full h-full object-cover"
                     src="{{ asset('pictures/join_our_team.jpg') }}">
-            </div>
+            </div>  
 
             <div class= "bg-[#E8DFC8] w-full lg:w-1/2 lg:h-[500px]">
                 <div>
-                    <h2 class="text-center mt-[20px] text-[#6B8E6E]">
+                    <h2 class="text-center text-[30px] lg:text-[42px] mt-[40px] text-[#6B8E6E]">
                         Join today
                     </h2>
-                    <p class="text-center text-[24px] mx-10 text-[#2F4730] font-semibold mt-4   ">
+                    <p class="text-center text-[20px] lg:text-[24px] mt-[30px] mx-10 text-[#2F4730] font-semibold mt-4   ">
                         Turn your love for dogs into flexible work.
                         Set your own schedule, meet amazing pets,
                         and earn money doing what you enjoy.
@@ -126,7 +136,7 @@
                     <button class="block w-full h-[100px] lg:h-[80px] lg:w-[400px] py-4 mx-auto mt-[70px] bg-[#6B8E6E] rounded-xl text-[20px] text-white font-semibold hover:bg-[#2F4730] transition duration-300">
                         Become a walker 
                     </button>
-
+                
                 </div>
             </div>
         </div>
