@@ -18,30 +18,20 @@
     <!--Navbar-->
     @include('profile.partials.navbar')
 
-    <!--Background pciture-->
-    <section>
-        <!--Computer screen -->
-        <img
-        src="{{ asset('pictures/frontpage-computer.jpg') }}"
-        alt="Front page"
-        class=" hidden md:block  w-full h-[650px] object-cover lg"/>
-
-        <!-- Phone screen-->
-          <img
-        src="{{ asset('pictures/frontpage-phone.jpg') }}"
-        alt="Front page"
-        class=" block md:hidden w-full h-auto object-cover lg"/>
-    
+    <!--Background picture-->
+    <section
+        class="h-[650px] bg-cover bg-center"
+        style="background-image: url('{{ asset('pictures/frontpage.jpg') }}');">
         <div class="absolute" > </div>
     </section>
 
     <!--How does it work section-->
     <section
-        class="mt-[100px]" 
+        class="mt-[100px]"
         id="how-it-works">
         <div class=" max-w-8xl mx-auto flex flex-col lg:flex-row gap-20 px-20">
 
-    
+
         <div class="mt-[20px    ]">
             <h2 class=" ls-pt-[100px]"
                 data-aos="fade-right">
@@ -55,13 +45,13 @@
             <li> Track your dog's walk, receive updates, and know they're in safe hands</li>
         </ol>
 
-        </div>  
+        </div>
 
         <!-- Image on right -->
         <img
             src="{{ asset('pictures/person.jpg') }}"
             alt="Person"
-            class=" pt-[120px] w-[650px] h-[auto] rounded-xl hidden md:block"
+            class=" pt-[120px] w-[650px] h-[auto] rounded-xl"
             data-aos="fade-left">
         </div>
     </section>
@@ -120,7 +110,7 @@
                 <img 
                     class="w-full h-full object-cover"
                     src="{{ asset('pictures/join_our_team.jpg') }}">
-            </div>  
+            </div>
 
             <div class= "bg-[#E8DFC8] w-full lg:w-1/2 lg:h-[500px]">
                 <div>
@@ -136,7 +126,7 @@
                     <button class="block w-full h-[100px] lg:h-[80px] lg:w-[400px] py-4 mx-auto mt-[70px] bg-[#6B8E6E] rounded-xl text-[20px] text-white font-semibold hover:bg-[#2F4730] transition duration-300">
                         Become a walker 
                     </button>
-                
+
                 </div>
             </div>
         </div>

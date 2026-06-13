@@ -16,8 +16,23 @@
 
         <!-- Desktop login/register -->
         <div class="hidden md:flex gap-4">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+            @if(auth()->check())
+                <div>
+                    Logged in as {{ auth()->user()->name }}
+                </div>
+
+                <a href="{{ route('logout') }}"
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+
+                <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display:none;">
+                    @csrf
+                </form>
+            @else
+                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('register') }}">Register</a>
+            @endif
         </div>
 
         <!-- Phone hamburger -->
@@ -36,8 +51,24 @@
 
         <hr class="my-2 border-white/20">
 
-        <a href="#" class="block py-2">Login</a>
-        <a href="#" class="block py-2">Register</a>
+        <!-- Login status checking for mobile -->
+        @if(auth()->check())
+            <div>
+                Logged in as {{ auth()->user()->name }}
+            </div>
+
+            <a href="{{ route('logout') }}"
+               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Logout
+            </a>
+
+            <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display:none;">
+                @csrf
+            </form>
+        @else
+            <a href="{{ route('login') }}">Login</a>
+            <a href="{{ route('register') }}">Register</a>
+        @endif
     </div>
 
 </div>
