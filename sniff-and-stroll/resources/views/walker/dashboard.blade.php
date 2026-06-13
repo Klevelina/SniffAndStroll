@@ -1,5 +1,15 @@
 <h1>Walker Dashboard</h1>
 
+<p>
+    Welcome,
+    {{ auth()->user()->name }}
+</p>
+
+<p>
+    Role:
+    {{ auth()->user()->role }}
+</p>
+
 @forelse($walks as $walk)
 
     <div>
