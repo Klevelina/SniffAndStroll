@@ -45,4 +45,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/walk-sessions/{walkSession}/accept', [WalkerController::class, 'accept'])->name('walk-sessions.accept');
 });
 
+Route::get('/about',function() {
+    return view('about');
+})->name('about');
+
+
 require __DIR__.'/auth.php';

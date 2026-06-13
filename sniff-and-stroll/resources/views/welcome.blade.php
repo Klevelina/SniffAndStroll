@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,37 +16,7 @@
 <body class="bg-[#F6F3E8] scroll-smooth">
 
     <!--Navbar-->
-    <nav class="sticky z-50 top-0 w-full  bg-[#2F4730] flex justify-between items-center py-6 px-4 text-white">
-        <h1 class="font-bold">
-            Sniff and Stroll
-        </h1>
-        <div class = "flex gap-6 text-white" >
-            <a href="/">Home</a>
-            <a href="#how-it-works">How it works</a>
-            <a href="/about"> About us</a>
-            <a href="/contact">Contact</a>
-        </div>
-
-        <div class = "flex gap-4">
-            @if(auth()->check())
-                <div>
-                    Logged in as {{ auth()->user()->name }}
-                </div>
-
-                <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
-
-                <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display:none;">
-                    @csrf
-                </form>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-                <a href="{{ route('register') }}">Register</a>
-            @endif
-        </div>
-    </nav>
+    @include('profile.partials.navbar')
 
     <!--Background picture-->
     <section
@@ -56,13 +27,13 @@
 
     <!--How does it work section-->
     <section
-        id="how-it-works"
-        class=" bg-[#F6F3E8]">
-        <div class=" max-w-8xl mx-auto flex gap-20 px-20">
+        class="mt-[100px]"
+        id="how-it-works">
+        <div class=" max-w-8xl mx-auto flex flex-col lg:flex-row gap-20 px-20">
 
 
-        <div class="">
-            <h2 class="pt-[100px]"
+        <div class="mt-[20px    ]">
+            <h2 class=" ls-pt-[100px]"
                 data-aos="fade-right">
                 How does it work?
             </h2>
@@ -85,14 +56,14 @@
         </div>
     </section>
 
-    <!-- Our top walker heading -->
+    <!-- Our top walkers heading -->
     <div class="flex justify-center pt-[110px]">
         <h2>
             Our top walkers:
         </h2>
     </div>
 
-    <!-- Profiles with our top walker -->
+    <!-- Profiles with our top walkers -->
     <section class="flex justify-between items-center pt-[60px] gap-10 px-20 max-w-7xl mx-auto" >
         <div class=" bg-[#6B8E6E] w-[320px] h-[500px] rounded-xl ">
             <div class="bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
