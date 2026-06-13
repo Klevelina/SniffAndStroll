@@ -8,11 +8,6 @@
             {{ auth()->user()->name }}
         </p>
 
-        <p>
-            Role:
-            {{ auth()->user()->role }}
-        </p>
-
         <hr>
 
         <ul>
