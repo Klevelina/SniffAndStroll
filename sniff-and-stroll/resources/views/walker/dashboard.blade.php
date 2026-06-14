@@ -26,10 +26,7 @@
             {{ $walk->duration_minutes }} minutes
         </p>
 
-        <p>
-            Status:
-            {{ $walk->status }}
-        </p>
+        <p>Status: {{ ucfirst($walk->status) }}</p>
 
         @if($walk->status === 'pending')
 
@@ -57,6 +54,34 @@
                     Decline Walk
                 </button>
 
+            </form>
+
+        @endif
+
+        @if($walk->status === 'accepted')
+
+            <form method="POST"
+                  action="{{ route('walk-sessions.start', $walk) }}">
+                @csrf
+                @method('PATCH')
+
+                <button type="submit">
+                    Start Walk
+                </button>
+            </form>
+
+        @endif
+
+        @if($walk->status === 'active')
+
+            <form method="POST"
+                  action="{{ route('walk-sessions.complete', $walk) }}">
+                @csrf
+                @method('PATCH')
+
+                <button type="submit">
+                    Complete Walk
+                </button>
             </form>
 
         @endif
