@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class WalkSession extends Model
 {
     protected $fillable = [
-        'owner_id',
-        'walker_id',
         'dog_id',
+        'walker_id',
+        'owner_id',
         'scheduled_at',
         'duration_minutes',
         'status',
     ];
 
-    public function owner()
+    public function dog()
     {
-        return $this->belongsTo(User::class, 'owner_id');
+        return $this->belongsTo(Dog::class);
     }
 
     public function walker()
@@ -25,10 +25,11 @@ class WalkSession extends Model
         return $this->belongsTo(User::class, 'walker_id');
     }
 
-    public function dog()
+    public function owner()
     {
-        return $this->belongsTo(Dog::class);
+        return $this->belongsTo(User::class, 'owner_id');
     }
+
     public function review()
     {
         return $this->hasOne(Review::class);
