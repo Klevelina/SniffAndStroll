@@ -9,7 +9,7 @@
         <!-- Desktop links -->
         <div class="hidden md:flex gap-6">
             <a href="/">Home</a>
-            <a href="#how-it-works">How it works</a>
+            <a href="/#how-it-works">How it works</a>
             <a href="/about">About us</a>
             <a href="/contact">Contact</a>
         </div>
@@ -45,7 +45,7 @@
     <!-- Phone menu -->
     <div x-show="open" class="md:hidden bg-[#2F4730] px-4 pb-4 text-white">
         <a href="/" class="block py-2">Home</a>
-        <a href="#how-it-works" class="block py-2">How it works</a>
+        <a href="/#how-it-works" class="block py-2">How it works</a>
         <a href="/about" class="block py-2">About us</a>
         <a href="/contact" class="block py-2">Contact</a>
 

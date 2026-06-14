@@ -84,6 +84,10 @@ Route::middleware('auth')->group(function () {
 
 });
 
+Route::get('/contact',function() {
+    return view('contact');
+})->name('contact');
+
 /*
 |--------------------------------------------------------------------------
 | Auth routes (Breeze)
