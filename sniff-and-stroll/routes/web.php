@@ -76,6 +76,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/walk-sessions/{walkSession}/accept', [WalkerController::class, 'accept'])
         ->name('walk-sessions.accept');
 
+Route::get('/contact',function() {
+    return view('contact');
+})->name('contact');
+
     Route::patch('/walk-sessions/{walkSession}/decline', [WalkerController::class, 'decline'])
         ->name('walk-sessions.decline');
 });
