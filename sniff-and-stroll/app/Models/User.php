@@ -66,4 +66,20 @@ class User extends Authenticatable
     {
         return $this->hasMany(Availability::class, 'walker_id');
     }
+
+    public function receivedReviews()
+    {
+        return $this->hasMany(Review::class, 'walker_id');
+    }
+
+
+    public function averageRating()
+    {
+        return round($this->receivedReviews()->avg('rating') ?? 0, 1);
+    }
+
+    public function reviewCount()
+    {
+        return $this->receivedReviews()->count();
+    }
 }
