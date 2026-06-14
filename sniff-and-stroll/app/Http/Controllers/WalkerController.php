@@ -48,4 +48,40 @@ class WalkerController extends Controller
         return redirect()
             ->route('walker.dashboard');
     }
+
+    public function start(WalkSession $walkSession)
+    {
+        if ($walkSession->walker_id !== auth()->id()) {
+            abort(403);
+        }
+
+        if ($walkSession->status !== 'accepted') {
+            return back();
+        }
+
+        $walkSession->update([
+            'status' => 'active'
+        ]);
+
+        return redirect()
+            ->route('walker.dashboard');
+    }
+
+    public function complete(WalkSession $walkSession)
+    {
+        if ($walkSession->walker_id !== auth()->id()) {
+            abort(403);
+        }
+
+        if ($walkSession->status !== 'active') {
+            return back();
+        }
+
+        $walkSession->update([
+            'status' => 'completed'
+        ]);
+
+        return redirect()
+            ->route('walker.dashboard');
+    }
 }
