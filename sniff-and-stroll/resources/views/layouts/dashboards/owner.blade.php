@@ -6,7 +6,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-[#F6F3E8]">
 
 @include('partials.dashboards.owner-navbar')
 
