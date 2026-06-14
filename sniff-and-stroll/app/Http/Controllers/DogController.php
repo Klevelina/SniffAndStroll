@@ -7,72 +7,62 @@ use Illuminate\Http\Request;
 
 class DogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $dogs = auth()->user()->dogs;
+        $dogs = Dog::where('user_id', auth()->id())->get();
 
         return view('dogs.index', compact('dogs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('dogs.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|max:255',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'breed' => 'required|string|max:255',
+            'notes' => 'nullable|string',
         ]);
 
-        auth()->user()->dogs()->create([
-            'name' => $request->name,
-            'breed' => $request->breed,
-            'age' => $request->age,
-            'notes' => $request->notes,
+        Dog::create([
+            'user_id' => auth()->id(),
+            ...$validated
         ]);
 
         return redirect()->route('dogs.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Dog $dog)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Dog $dog)
     {
-        //
+        abort_if($dog->user_id !== auth()->id(), 403);
+
+        return view('dogs.edit', compact('dog'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Dog $dog)
     {
-        //
+        abort_if($dog->user_id !== auth()->id(), 403);
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'breed' => 'required|string|max:255',
+            'notes' => 'nullable|string',
+        ]);
+
+        $dog->update($validated);
+
+        return redirect()->route('dogs.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Dog $dog)
     {
-        //
+        abort_if($dog->user_id !== auth()->id(), 403);
+
+        $dog->delete();
+
+        return redirect()->route('dogs.index');
     }
 }
