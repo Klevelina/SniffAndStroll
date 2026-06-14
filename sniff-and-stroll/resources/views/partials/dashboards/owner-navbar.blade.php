@@ -1,10 +1,10 @@
-<nav class="bg-white shadow px-6 py-4 flex justify-between items-center">
+<nav class="bg-[#2F4730] shadow px-6 py-4 flex justify-between items-center">
 
-    <div class="font-bold">
+    <div class="text-white font-bold">
         <a href="/">Home</a>
     </div>
 
-    <div class="flex gap-6 items-center">
+    <div class=" text-white flex gap-6 items-center">
 
         <a href="{{ route('owner.dashboard') }}">Dashboard</a>
         <a href="{{ route('dogs.index') }}">Dogs</a>
