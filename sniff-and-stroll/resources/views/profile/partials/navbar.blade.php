@@ -8,10 +8,13 @@
 
         <!-- Desktop links -->
         <div class="hidden md:flex gap-6">
-            <a href="/">Home</a>
-            <a href="/#how-it-works">How it works</a>
-            <a href="/about">About us</a>
-            <a href="/contact">Contact</a>
+            <a href="/">{{ __('messages.home')}}</a>
+            <a href="/#how-it-works">{{ __('messages.how_it_works') }}</a>
+            <a href="/about">{{ __('messages.about') }}</a>
+            <a href="/contact">{{ __('messages.contact') }}</a>
+            <a href="{{ route('language.switch', 'en') }}">EN</a>
+            <a href="{{ route('language.switch', 'lv') }}">LV</a>
+            
         </div>
 
         <!-- Desktop login/register -->
@@ -48,6 +51,8 @@
         <a href="/#how-it-works" class="block py-2">How it works</a>
         <a href="/about" class="block py-2">About us</a>
         <a href="/contact" class="block py-2">Contact</a>
+        <a href="{{ route('language.switch', 'en') }}">EN</a>
+        <a href="{{ route('language.switch', 'lv') }}">LV</a>
 
         <hr class="my-2 border-white/20">
 

@@ -6,6 +6,8 @@ use App\Http\Controllers\WalkSessionController;
 use App\Http\Controllers\WalkerController;
 use App\Http\Controllers\OwnerController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,6 +20,15 @@ Route::get('/about', function () {
 Route::get('/contact',function() {
     return view('contact');
 })->name('contact');
+
+Route::get('/language/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'lv'])) {
+        Session::put('locale', $locale);
+    }
+
+    return Redirect::back();
+})->name('language.switch');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -84,9 +95,7 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::get('/contact',function() {
-    return view('contact');
-})->name('contact');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -94,3 +103,4 @@ Route::get('/contact',function() {
 |--------------------------------------------------------------------------
 */
 require __DIR__.'/auth.php';
+

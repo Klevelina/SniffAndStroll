@@ -18,6 +18,7 @@
     <!--Navbar-->
     @include('profile.partials.navbar')
 
+
     <!--Background pciture-->
     <section>
         <!--Computer screen -->
@@ -44,14 +45,14 @@
         <div class="mt-[20px]">
             <h2 class="text-[26px] lg:text-[42px] text-center lg:text-left ls-pt-[100px]"
                 data-aos="fade-right">
-                How does it work?
+                {{ __('messages.how_it_works_title') }}
             </h2>
 
             <ol class="list-decimal lg:text-[24px] space-y-8 pl-[25px] text-xl pt-[40px] space-y-5 text-[#2F4730] font-medium"
                 data-aos="fade-right">
-            <li> Browse trusted dog walkers in your area and find the perfect match for your pet</li>
-            <li> Select a convenient date and time, then send a booking request in just a few clicks</li>
-            <li> Track your dog's walk, receive updates, and know they're in safe hands</li>
+            <li> {{ __('messages.step_1') }}</li>
+            <li> {{ __('messages.step_2') }}</li>
+            <li> {{ __('messages.step_3') }}</li>
         </ol>
 
         </div>  
@@ -68,13 +69,13 @@
     <!-- Our top walkers heading -->
     <div class="text-center text-[26px] lg:text-[52px] flex justify-center pt-[110px]">
         <h2 class="text-[30px] lg:text-[52px]">
-            Our top walkers:
+            {{ __('messages.top_walkers')}}
         </h2>
     </div>
 
     <!-- Profiles with our top walkers -->
     <section class="flex overflow-x-auto snap-x snap-mandatory lg:overflow-visible lg:justify-between items-center pt-[60px] gap-10 lg:px-20 max-w-7xl mx-auto" >
-        <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[85vw] max-w-[320px] h-[500px] rounded-xl ">
+        <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[85vw] max-w-[320px] h-[550px] rounded-xl ">
             <div class="bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
             <img
             src="{{ asset('pictures/person1.jpg') }}"
@@ -82,11 +83,11 @@
             <h3 class="text-center text-[#E8DFC8] text-[20px] mt-2 ">
                 Doreen Green
             </h3>
-            <p class="text-center text-[#2F4730] font-semibold mt-2">"Enjoys Long walks with active dogs and outdoor adventures"</p>
-            <button class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300] ">Book now</button>
+            <p class="px-4 text-center text-[#2F4730] font-semibold mt-4 h-[80px]">{{ __('messages.doreen_description')}}</p>
+            <button class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300] ">{{__('messages.book_now')}}</button>
         </div>
 
-        <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[85vw] max-w-[320px] h-[500px] rounded-xl">
+        <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[85vw] max-w-[320px] h-[550px] rounded-xl">
             <div class=" bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
                 <img
                     src="{{ asset('pictures/person2.jpg') }}"
@@ -94,11 +95,11 @@
                 <h3 class="text-center text-[#E8DFC8] text-[20px] mt-2 ">
                     Peni Parker
                 </h3>
-                <p class="text-center text-[#2F4730] font-semibold mt-2  ">"Patient and caring walker for puppies and senior dogs"</p>
-                <button class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-#2F4730 hover:bg-[#C9A27E] transition duration-300] ">Book now</button>
+                <p class="px-4 text-center text-[#2F4730] font-semibold mt-4 h-[80px]  ">{{ __('messages.peni_description')}}</p>
+                <button class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-#2F4730 hover:bg-[#C9A27E] transition duration-300] ">{{__('messages.book_now')}}</button>
         </div>
 
-        <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[320px] h-[500px] rounded-xl">
+        <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[320px] h-[550px] rounded-xl">
             <div class=" bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
                 <img
                     src="{{ asset('pictures/person3.jpg') }}"
@@ -106,9 +107,9 @@
                 <h3 class="text-center text-[#E8DFC8] text-[20px] mt-2">
                     Susan Richards
                 </h3>
-                <p class="text-center text-[#2F4730] font-semibold mt-2">"Experienced with all breeds, from tiny companions to large dogs"</p>
+                <p class="px-4 text-center text-[#2F4730] font-semibold mt-4 h-[80px]">{{ __('messages.susan_description')}}</p>
                 
-                <button class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300 ">Book now</button>
+                <button class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300 ">{{ __('messages.book_now')}}</button>
 
         </div>
     </section>
@@ -125,16 +126,14 @@
             <div class= "bg-[#E8DFC8] mb-8 lg:mb-0 w-full lg:w-1/2 lg:h-[500px]">
                 <div>
                     <h2 class="text-center text-[30px] lg:text-[42px] mt-[40px] text-[#6B8E6E]">
-                        Join today
+                        {{ __('messages.join_today')}}
                     </h2>
                     <p class="text-center text-[20px] lg:text-[24px] mt-[30px] mx-10 text-[#2F4730] font-semibold mt-4   ">
-                        Turn your love for dogs into flexible work.
-                        Set your own schedule, meet amazing pets,
-                        and earn money doing what you enjoy.
+                        {{ __('messages.join_text')}}
                     </p>
 
                     <button class="block w-full h-[100px] lg:h-[80px] lg:w-[400px] py-4 mx-auto mt-[70px] bg-[#6B8E6E] rounded-xl text-[20px] text-white font-semibold hover:bg-[#2F4730] transition duration-300">
-                        Become a walker 
+                        {{ __('messages.become_walker')}}
                     </button>
                 
                 </div>
