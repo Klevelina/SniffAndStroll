@@ -5,6 +5,10 @@
     {{ auth()->user()->name }}
 </p>
 
+<a href="{{ route('availabilities.index') }}">
+    Manage Availability
+</a>
+
 @forelse($walks as $walk)
 
     <div>

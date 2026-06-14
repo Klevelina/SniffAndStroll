@@ -61,4 +61,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(WalkSession::class, 'walker_id');
     }
+
+    public function availabilities()
+    {
+        return $this->hasMany(Availability::class, 'walker_id');
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AvailabilityController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DogController;
 use App\Http\Controllers\WalkSessionController;
@@ -92,6 +93,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/walk-sessions/{walkSession}/start', [WalkerController::class, 'start'])->name('walk-sessions.start');
     Route::patch('/walk-sessions/{walkSession}/complete', [WalkerController::class, 'complete'])->name('walk-sessions.complete');
     Route::patch('/walk-sessions/{walkSession}/decline', [WalkerController::class, 'decline'])->name('walk-sessions.decline');
+
+    //Availability
+    Route::resource('availabilities', AvailabilityController::class);
+//    Route::get('/availabilities/{availability}/edit', [AvailabilityController::class, 'edit'])->name('availabilities.edit');
+//    Route::put('/availabilities/{availability}', [AvailabilityController::class, 'update'])->name('availabilities.update');
+//    Route::delete('/availabilities/{availability}', [AvailabilityController::class, 'destroy'])->name('availabilities.destroy');
 
 });
 
