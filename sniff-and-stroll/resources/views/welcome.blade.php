@@ -37,7 +37,7 @@
 
     <!--How does it work section-->
     <section
-        class="mt-[100px] lg: scroll-mt-[80px] scroll-mt-[400px]" 
+        class="mt-[60px] lg:mt-[100px] lg: scroll-mt-[80px] scroll-mt-[500px]" 
         id="how-it-works">
         <div class=" max-w-8xl mx-auto flex flex-col lg:flex-row gap-20 px-20">
 
@@ -113,6 +113,7 @@
         </div>
     </section>
 
+    <!--Join today section-->
     <section class ="w-full">
         <div class=" w-full flex flex-col lg:flex-row justify-center items-center mt-[150px]">
             <div class="w-full lg:w-1/2 lg:h-[500px]">
@@ -121,7 +122,7 @@
                     src="{{ asset('pictures/join_our_team.jpg') }}">
             </div>  
 
-            <div class= "bg-[#E8DFC8] w-full lg:w-1/2 lg:h-[500px]">
+            <div class= "bg-[#E8DFC8] mb-8 lg:mb-0 w-full lg:w-1/2 lg:h-[500px]">
                 <div>
                     <h2 class="text-center text-[30px] lg:text-[42px] mt-[40px] text-[#6B8E6E]">
                         Join today

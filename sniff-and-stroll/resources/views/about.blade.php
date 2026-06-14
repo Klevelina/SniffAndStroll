@@ -54,7 +54,7 @@
                 <h2>Our mission</h2>
             </div>
 
-            <div class="mt-6 px-7 lg:px-0 text-[18px] lg:text-[20px] max-w-6xl text-[#2F4730] leading-relaxed">
+            <div class=" mb-[60px] mt-6 px-7 lg:px-0 text-[18px] lg:text-[20px] max-w-6xl text-[#2F4730] leading-relaxed">
                 <p>
                     To create a trusted community where dogs receive the care they deserve and owners can confidently find support whenever they need it.
                 </p>
