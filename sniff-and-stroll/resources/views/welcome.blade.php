@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,32 +14,31 @@
 </head>
 <body class="bg-[#F6F3E8] scroll-smooth">
 
-    <!--Navbar-->
-    @include('profile.partials.navbar')
+<!--Navbar-->
+@include('partials.navbar')
 
-
-    <!--Background pciture-->
-    <section>
-        <!--Computer screen -->
-        <img
+<!--Background pciture-->
+<section>
+    <!--Computer screen -->
+    <img
         src="{{ asset('pictures/frontpage-computer.jpg') }}"
         alt="Front page"
         class=" hidden md:block  w-full h-[650px] object-cover lg"/>
 
-        <!-- Phone screen-->
-          <img
+    <!-- Phone screen-->
+    <img
         src="{{ asset('pictures/frontpage-phone.jpg') }}"
         alt="Front page"
         class=" block md:hidden w-full h-auto object-cover lg"/>
-    
-        <div class="absolute" > </div>
-    </section>
 
-    <!--How does it work section-->
-    <section
-        class="mt-[60px] lg:mt-[100px] lg: scroll-mt-[80px] scroll-mt-[500px]" 
-        id="how-it-works">
-        <div class=" max-w-8xl mx-auto flex flex-col lg:flex-row gap-20 px-20">
+    <div class="absolute"></div>
+</section>
+
+<!--How does it work section-->
+<section
+    class="mt-[60px] lg:mt-[100px] lg: scroll-mt-[80px] scroll-mt-[500px]"
+    id="how-it-works">
+    <div class=" max-w-8xl mx-auto flex flex-col lg:flex-row gap-20 px-20">
 
         <div class="mt-[20px]">
             <h2 class="text-[26px] lg:text-[42px] text-center lg:text-left ls-pt-[100px]"
@@ -50,12 +48,12 @@
 
             <ol class="list-decimal lg:text-[24px] space-y-8 pl-[25px] text-xl pt-[40px] space-y-5 text-[#2F4730] font-medium"
                 data-aos="fade-right">
-            <li> {{ __('messages.step_1') }}</li>
-            <li> {{ __('messages.step_2') }}</li>
-            <li> {{ __('messages.step_3') }}</li>
-        </ol>
+                <li> {{ __('messages.step_1') }}</li>
+                <li> {{ __('messages.step_2') }}</li>
+                <li> {{ __('messages.step_3') }}</li>
+            </ol>
 
-        </div>  
+        </div>
 
         <!-- Image on right -->
         <img
@@ -63,86 +61,91 @@
             alt="Person"
             class=" pt-[120px] w-[650px] h-[auto] rounded-xl hidden md:block"
             data-aos="fade-left">
-        </div>
-    </section>
-
-    <!-- Our top walkers heading -->
-    <div class="text-center text-[26px] lg:text-[52px] flex justify-center pt-[110px]">
-        <h2 class="text-[30px] lg:text-[52px]">
-            {{ __('messages.top_walkers')}}
-        </h2>
     </div>
+</section>
 
-    <!-- Profiles with our top walkers -->
-    <section class="flex overflow-x-auto snap-x snap-mandatory lg:overflow-visible lg:justify-between items-center pt-[60px] gap-10 lg:px-20 max-w-7xl mx-auto" >
-        <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[85vw] max-w-[320px] h-[550px] rounded-xl ">
-            <div class="bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
-            <img
+<!-- Our top walkers heading -->
+<div class="text-center text-[26px] lg:text-[52px] flex justify-center pt-[110px]">
+    <h2 class="text-[30px] lg:text-[52px]">
+        {{ __('messages.top_walkers')}}
+    </h2>
+</div>
+
+<!-- Profiles with our top walkers -->
+<section
+    class="flex overflow-x-auto snap-x snap-mandatory lg:overflow-visible lg:justify-between items-center pt-[60px] gap-10 lg:px-20 max-w-7xl mx-auto">
+    <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[85vw] max-w-[320px] h-[550px] rounded-xl ">
+        <div class="bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
+        <img
             src="{{ asset('pictures/person1.jpg') }}"
             class="z-1 w-[250px] h-[250px] rounded-full object-cover mx-auto -mt-[65px]">
-            <h3 class="text-center text-[#E8DFC8] text-[20px] mt-2 ">
-                Doreen Green
-            </h3>
-            <p class="px-4 text-center text-[#2F4730] font-semibold mt-4 h-[80px]">{{ __('messages.doreen_description')}}</p>
-            <button class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300] ">{{__('messages.book_now')}}</button>
+        <h3 class="text-center text-[#E8DFC8] text-[20px] mt-2 ">
+            Doreen Green
+        </h3>
+        <p class="px-4 text-center text-[#2F4730] font-semibold mt-4 h-[80px]">{{ __('messages.doreen_description')}}</p>
+        <button
+            class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300] ">{{__('messages.book_now')}}</button>
+    </div>
+
+    <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[85vw] max-w-[320px] h-[550px] rounded-xl">
+        <div class=" bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
+        <img
+            src="{{ asset('pictures/person2.jpg') }}"
+            class="z-1 w-[250px] h-[250px] rounded-full object-cover mx-auto -mt-[65px]">
+        <h3 class="text-center text-[#E8DFC8] text-[20px] mt-2 ">
+            Peni Parker
+        </h3>
+        <p class="px-4 text-center text-[#2F4730] font-semibold mt-4 h-[80px]  ">{{ __('messages.peni_description')}}</p>
+        <button
+            class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-#2F4730 hover:bg-[#C9A27E] transition duration-300] ">{{__('messages.book_now')}}</button>
+    </div>
+
+    <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[320px] h-[550px] rounded-xl">
+        <div class=" bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
+        <img
+            src="{{ asset('pictures/person3.jpg') }}"
+            class=" w-[250px] h-[250px] rounded-full object-cover mx-auto -mt-[65px]">
+        <h3 class="text-center text-[#E8DFC8] text-[20px] mt-2">
+            Susan Richards
+        </h3>
+        <p class="px-4 text-center text-[#2F4730] font-semibold mt-4 h-[80px]">{{ __('messages.susan_description')}}</p>
+
+        <button
+            class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300 ">{{ __('messages.book_now')}}</button>
+
+    </div>
+</section>
+
+<!--Join today section-->
+<section class="w-full">
+    <div class=" w-full flex flex-col lg:flex-row justify-center items-center mt-[150px]">
+        <div class="w-full lg:w-1/2 lg:h-[500px]">
+            <img
+                class="w-full h-full object-cover"
+                src="{{ asset('pictures/join_our_team.jpg') }}">
         </div>
 
-        <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[85vw] max-w-[320px] h-[550px] rounded-xl">
-            <div class=" bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
-                <img
-                    src="{{ asset('pictures/person2.jpg') }}"
-                    class="z-1 w-[250px] h-[250px] rounded-full object-cover mx-auto -mt-[65px]">
-                <h3 class="text-center text-[#E8DFC8] text-[20px] mt-2 ">
-                    Peni Parker
-                </h3>
-                <p class="px-4 text-center text-[#2F4730] font-semibold mt-4 h-[80px]  ">{{ __('messages.peni_description')}}</p>
-                <button class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-#2F4730 hover:bg-[#C9A27E] transition duration-300] ">{{__('messages.book_now')}}</button>
-        </div>
+        <div class="bg-[#E8DFC8] mb-8 lg:mb-0 w-full lg:w-1/2 lg:h-[500px]">
+            <div>
+                <h2 class="text-center text-[30px] lg:text-[42px] mt-[40px] text-[#6B8E6E]">
+                    {{ __('messages.join_today')}}
+                </h2>
+                <p class="text-center text-[20px] lg:text-[24px] mt-[30px] mx-10 text-[#2F4730] font-semibold mt-4   ">
+                    {{ __('messages.join_text')}}
+                </p>
 
-        <div class="snap-center flex-shrink-0 bg-[#6B8E6E] w-[320px] h-[550px] rounded-xl">
-            <div class=" bg-[#E8DFC8] w-[320px] h-[100px] rounded-t-xl"></div>
-                <img
-                    src="{{ asset('pictures/person3.jpg') }}"
-                    class=" w-[250px] h-[250px] rounded-full object-cover mx-auto -mt-[65px]">
-                <h3 class="text-center text-[#E8DFC8] text-[20px] mt-2">
-                    Susan Richards
-                </h3>
-                <p class="px-4 text-center text-[#2F4730] font-semibold mt-4 h-[80px]">{{ __('messages.susan_description')}}</p>
-                
-                <button class="block px-6 py-4 mx-auto mt-[30px] bg-[#E8DFC8] rounded-full text-[#2F4730] hover:bg-[#C9A27E] transition duration-300 ">{{ __('messages.book_now')}}</button>
+                <button
+                    class="block w-full h-[100px] lg:h-[80px] lg:w-[400px] py-4 mx-auto mt-[70px] bg-[#6B8E6E] rounded-xl text-[20px] text-white font-semibold hover:bg-[#2F4730] transition duration-300">
+                    {{ __('messages.become_walker')}}
+                </button>
 
-        </div>
-    </section>
-
-    <!--Join today section-->
-    <section class ="w-full">
-        <div class=" w-full flex flex-col lg:flex-row justify-center items-center mt-[150px]">
-            <div class="w-full lg:w-1/2 lg:h-[500px]">
-                <img 
-                    class="w-full h-full object-cover"
-                    src="{{ asset('pictures/join_our_team.jpg') }}">
-            </div>  
-
-            <div class= "bg-[#E8DFC8] mb-8 lg:mb-0 w-full lg:w-1/2 lg:h-[500px]">
-                <div>
-                    <h2 class="text-center text-[30px] lg:text-[42px] mt-[40px] text-[#6B8E6E]">
-                        {{ __('messages.join_today')}}
-                    </h2>
-                    <p class="text-center text-[20px] lg:text-[24px] mt-[30px] mx-10 text-[#2F4730] font-semibold mt-4   ">
-                        {{ __('messages.join_text')}}
-                    </p>
-
-                    <button class="block w-full h-[100px] lg:h-[80px] lg:w-[400px] py-4 mx-auto mt-[70px] bg-[#6B8E6E] rounded-xl text-[20px] text-white font-semibold hover:bg-[#2F4730] transition duration-300">
-                        {{ __('messages.become_walker')}}
-                    </button>
-                
-                </div>
             </div>
         </div>
+    </div>
 
-    </section>
+</section>
 
-    @include('profile.partials.footer')
+@include('profile.partials.footer')
 
 
 </body>
