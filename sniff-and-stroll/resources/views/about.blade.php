@@ -27,7 +27,7 @@
 
             <div class="absolute inset-0  text-[40px] flex items-center justify-center">
                 <h2 class="text-[#F6F3E8]">
-                    About us
+                    {{ __('messages.about_us') }}
                 </h2>
             </div>
         </section>
@@ -35,14 +35,12 @@
         <!-- About Sniff and Roll section-->
         <section class="flex-col w-full lg:mt-[100px] lg:ml-[120px]">
             <div class ="lg:text-left text-center mt-4 text-[30px] lg:text-[36px]">
-                <h2>About Sniff and Roll</h2>
+                <h2>{{ __('messages.about_sniff_and_stroll') }}</h2>
             </div>
 
             <div class="mt-6 px-7 lg:px-0 text-[18px] lg:text-left lg:text-[20px] max-w-6xl text-[#2F4730] leading-relaxed">
                 <p>
-                    Sniff & Stroll is a platform designed to connect dog owners with trusted local dog walkers. We understand that busy schedules can make it difficult to give pets the time and exercise they need every day.
-                    Our goal is to make finding a reliable dog walker simple and convenient. Through our platform, owners can browse available walkers, learn more about them, and choose the best match for their dog's needs.
-                    Whether it's a quick walk around the neighborhood or a longer outdoor adventure, Sniff & Stroll helps ensure that every dog receives the care, attention, and exercise they deserve.    
+                   {{ __('messages.about_description') }}
                 </p>
 
             </div>
@@ -51,12 +49,12 @@
         <!--Our mission section-->
         <section class="flex-col lg:mt-[100px] lg:ml-[120px]">
             <div class ="lg:text-left text-center mt-4 text-[30px] lg:text-[36px]">
-                <h2>Our mission</h2>
+                <h2>{{ __('messages.our_mission') }}</h2>
             </div>
 
             <div class=" mb-[60px] mt-6 px-7 lg:px-0 text-[18px] lg:text-[20px] max-w-6xl text-[#2F4730] leading-relaxed">
                 <p>
-                    To create a trusted community where dogs receive the care they deserve and owners can confidently find support whenever they need it.
+                    {{ __('messages.mission_description') }}
                 </p>
             </div>
         </section>

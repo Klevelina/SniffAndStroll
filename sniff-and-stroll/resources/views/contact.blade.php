@@ -29,14 +29,14 @@
             <form class="w-full max-w-xl space-y-6 mx-10 pb-10 lg:pb-0">
 
                 <div class="text-center mt-4 text-[30px] lg:text-[50px]">
-                <h2>Get in touch</h2></div>
-                <div class="text-center text-[20px] lg:text-[30px] text-[#2F4730]">
-                <h3> Have a question about our services? We'd love to hear from you.</h3>
+                <h2>{{ __('messages.get_in_touch') }}</h2></div>
+                <div class="text-center text-[20px] h-[80px] lg:text-[30px] text-[#2F4730]">
+                <h3> {{ __('messages.contact_subtitle') }}</h3>
                 </div>
 
                 <div>
-                    <label class="block mb-2 font-semibold">
-                        Name
+                    <label class="block mb-2  font-semibold">
+                        {{ __('messages.name') }}
                     </label>
                     <input
                         type="text"
@@ -45,7 +45,7 @@
 
                 <div>
                     <label class="block mb-2 font-semibold">
-                        Email
+                        {{ __('messages.email') }}
                     </label>
                     <input
                         type="email"
@@ -54,7 +54,7 @@
 
                 <div>
                     <label class="block mb-2 font-semibold">
-                        Subject
+                        {{ __('messages.subject') }}
                     </label>
                     <input
                         type="text"
@@ -63,7 +63,7 @@
 
                 <div>
                     <label class="block mb-2 font-semibold">
-                        Message
+                        {{ __('messages.message') }}
                     </label>
                     <textarea
                         rows="5"
@@ -73,7 +73,7 @@
                 <button
                     type="submit"
                     class="block mx-auto bg-[#6B8E6E] text-white px-8 py-4 rounded-xl hover:bg-[#2F4730] transition">
-                    Send Message
+                    {{ __('messages.send_message') }}
                 </button>  
             
             </form>
