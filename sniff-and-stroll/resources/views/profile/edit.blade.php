@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-xl font-bold mb-4">Profile</h2>
+    <h2 class="text-xl text-white font-bold mb-4">Profile</h2>
 
     <div class="space-y-6">
 

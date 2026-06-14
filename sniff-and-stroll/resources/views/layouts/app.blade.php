@@ -9,7 +9,7 @@
 
 @include('partials.navbar')
 
-<main class="p-6">
+<main class="p-6 bg-[#4A654A]">
     @yield('content')
 </main>
 
