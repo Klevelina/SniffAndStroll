@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sniff and Stroll</title>
+    <title>Owner Dashboard</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
 
-@include('partials.navbar')
+<body class="bg-gray-100">
+
+@include('partials.dashboards.owner-navbar')
 
 <main class="p-6">
     @yield('content')

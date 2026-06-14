@@ -14,72 +14,72 @@
 </head>
 <body class="bg-[#F6F3E8] scroll-smooth">
 
-    @include('profile.partials.navbar')
+@include('partials.navbar')
 
-    <!--Contact section-->
-    <section class="w-full h-full flex flex-col lg:flex-row">
-        <div class="w-full lg:w-2/5 lg:h-screen">
-            <img
-                src="{{ asset('pictures/contact.jpg') }}"
-                alt="contact-page"
-                class="w-full h-[400px] lg:h-full object-cover  ">
-        </div>
+<!--Contact section-->
+<section class="w-full h-full flex flex-col lg:flex-row">
+    <div class="w-full lg:w-2/5 lg:h-screen">
+        <img
+            src="{{ asset('pictures/contact.jpg') }}"
+            alt="contact-page"
+            class="w-full h-[400px] lg:h-full object-cover  ">
+    </div>
 
-        <div class="lg:w-3/5 w-full flex items-center justify-center">
-            <form class="w-full max-w-xl space-y-6 mx-10 pb-10 lg:pb-0">
+    <div class="lg:w-3/5 w-full flex items-center justify-center">
+        <form class="w-full max-w-xl space-y-6 mx-10 pb-10 lg:pb-0">
 
-                <div class="text-center mt-4 text-[30px] lg:text-[50px]">
+            <div class="text-center mt-4 text-[30px] lg:text-[50px]">
                 <h2>{{ __('messages.get_in_touch') }}</h2></div>
-                <div class="text-center text-[20px] h-[80px] lg:text-[30px] text-[#2F4730]">
+            <div class="text-center text-[20px] h-[80px] lg:text-[30px] text-[#2F4730]">
                 <h3> {{ __('messages.contact_subtitle') }}</h3>
-                </div>
+            </div>
 
-                <div>
-                    <label class="block mb-2  font-semibold">
-                        {{ __('messages.name') }}
-                    </label>
-                    <input
-                        type="text"
-                        class="w-full p-3 border rounded-lg">
-                </div>
+            <div>
+                <label class="block mb-2  font-semibold">
+                    {{ __('messages.name') }}
+                </label>
+                <input
+                    type="text"
+                    class="w-full p-3 border rounded-lg">
+            </div>
 
-                <div>
-                    <label class="block mb-2 font-semibold">
-                        {{ __('messages.email') }}
-                    </label>
-                    <input
-                        type="email"
-                        class="w-full p-3 border rounded-lg">
-                </div>
+            <div>
+                <label class="block mb-2 font-semibold">
+                    {{ __('messages.email') }}
+                </label>
+                <input
+                    type="email"
+                    class="w-full p-3 border rounded-lg">
+            </div>
 
-                <div>
-                    <label class="block mb-2 font-semibold">
-                        {{ __('messages.subject') }}
-                    </label>
-                    <input
-                        type="text"
-                        class="w-full p-3 border rounded-lg">
-                </div>
+            <div>
+                <label class="block mb-2 font-semibold">
+                    {{ __('messages.subject') }}
+                </label>
+                <input
+                    type="text"
+                    class="w-full p-3 border rounded-lg">
+            </div>
 
-                <div>
-                    <label class="block mb-2 font-semibold">
-                        {{ __('messages.message') }}
-                    </label>
-                    <textarea
-                        rows="5"
-                        class="w-full p-3 border rounded-lg"></textarea>
-                </div>
+            <div>
+                <label class="block mb-2 font-semibold">
+                    {{ __('messages.message') }}
+                </label>
+                <textarea
+                    rows="5"
+                    class="w-full p-3 border rounded-lg"></textarea>
+            </div>
 
-                <button
-                    type="submit"
-                    class="block mx-auto bg-[#6B8E6E] text-white px-8 py-4 rounded-xl hover:bg-[#2F4730] transition">
-                    {{ __('messages.send_message') }}
-                </button>  
-            
-            </form>
-        </div>
-    </section>
+            <button
+                type="submit"
+                class="block mx-auto bg-[#6B8E6E] text-white px-8 py-4 rounded-xl hover:bg-[#2F4730] transition">
+                {{ __('messages.send_message') }}
+            </button>
 
-    @include('profile.partials.footer')
+        </form>
+    </div>
+</section>
+
+@include('profile.partials.footer')
 
 </body>

@@ -1,85 +1,62 @@
-<h1>Owner Dashboard</h1>
+@extends('layouts.dashboards.owner')
 
-<p>Welcome {{ auth()->user()->name }}</p>
+@section('content')
+    <h1>Owner Dashboard</h1>
 
-<ul>
+    @forelse($walks as $walk)
 
-    <li>
-        <a href="{{ route('dogs.index') }}">
-            My Dogs
-        </a>
-    </li>
+        <div>
 
+            <h3>{{ $walk->dog->name }}</h3>
 
-    <li>
-        <a href="{{ route('walk-sessions.create') }}">
-            Book Walk
-        </a>
-    </li>
+            <p>
+                Walker:
+                {{ $walk->walker->name }}
+            </p>
 
-</ul>
+            <p>
+                Date:
+                {{ $walk->scheduled_at }}
+            </p>
 
-<form method="POST" action="{{ route('logout') }}">
-    @csrf
+            <p>
+                Status:
+                {{ $walk->status }}
+            </p>
 
-    <button type="submit">
-        Logout
-    </button>
-</form>
+        </div>
 
-@forelse($walks as $walk)
+        @if($walk->status === 'completed')
 
-    <div>
+            @if($walk->review)
+                <div>
+                    <p>Review submitted ✔</p>
+                    <p>⭐ {{ $walk->review->rating }}/5</p>
+                    <p>{{ $walk->review->comment }}</p>
+                </div>
+            @else
+                <form method="POST" action="{{ route('reviews.store') }}">
+                    @csrf
 
-        <h3>{{ $walk->dog->name }}</h3>
+                    <input type="hidden" name="walk_session_id" value="{{ $walk->id }}">
 
-        <p>
-            Walker:
-            {{ $walk->walker->name }}
-        </p>
+                    <label>Rating</label>
+                    <input type="number" name="rating" min="1" max="5" required>
 
-        <p>
-            Date:
-            {{ $walk->scheduled_at }}
-        </p>
+                    <label>Comment</label>
+                    <textarea name="comment"></textarea>
 
-        <p>
-            Status:
-            {{ $walk->status }}
-        </p>
+                    <button type="submit">Submit Review</button>
+                </form>
+            @endif
 
-    </div>
-
-    @if($walk->status === 'completed')
-
-        @if($walk->review)
-            <div>
-                <p>Review submitted ✔</p>
-                <p>⭐ {{ $walk->review->rating }}/5</p>
-                <p>{{ $walk->review->comment }}</p>
-            </div>
-        @else
-            <form method="POST" action="{{ route('reviews.store') }}">
-                @csrf
-
-                <input type="hidden" name="walk_session_id" value="{{ $walk->id }}">
-
-                <label>Rating</label>
-                <input type="number" name="rating" min="1" max="5" required>
-
-                <label>Comment</label>
-                <textarea name="comment"></textarea>
-
-                <button type="submit">Submit Review</button>
-            </form>
         @endif
 
-    @endif
+        <hr>
 
-    <hr>
+    @empty
 
-@empty
+        <p>No walks booked.</p>
 
-    <p>No walks booked.</p>
-
-@endforelse
+    @endforelse
+@endsection
