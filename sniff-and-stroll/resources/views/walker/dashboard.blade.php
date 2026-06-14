@@ -1,3 +1,12 @@
+<h1>Owner Dashboard</h1>
+
+<p>Welcome {{ auth()->user()->name }}</p>
+
+<p>
+    ⭐ {{ auth()->user()->averageRating() }}
+    ({{ auth()->user()->reviewCount() }} reviews)
+</p>
+
 @forelse($walks as $walk)
 
     <div>

@@ -58,6 +58,14 @@ class ReviewController extends Controller
             ]
         );
 
+        $review = Review::create([
+            'walk_session_id' => $walk->id,
+            'reviewer_id' => auth()->id(),
+            'walker_id' => $walk->walker_id,
+            'rating' => $request->rating,
+            'comment' => $request->comment,
+        ]);
+
         return back();
     }
 
