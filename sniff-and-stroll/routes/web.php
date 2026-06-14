@@ -3,6 +3,7 @@
 use App\Http\Controllers\AvailabilityController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DogController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WalkSessionController;
 use App\Http\Controllers\WalkerController;
 use App\Http\Controllers\OwnerController;
@@ -96,10 +97,9 @@ Route::middleware('auth')->group(function () {
 
     //Availability
     Route::resource('availabilities', AvailabilityController::class);
-//    Route::get('/availabilities/{availability}/edit', [AvailabilityController::class, 'edit'])->name('availabilities.edit');
-//    Route::put('/availabilities/{availability}', [AvailabilityController::class, 'update'])->name('availabilities.update');
-//    Route::delete('/availabilities/{availability}', [AvailabilityController::class, 'destroy'])->name('availabilities.destroy');
 
+    // Reviews
+    Route::resource('reviews', ReviewController::class)->only(['store', 'index', 'destroy']);
 });
 
 

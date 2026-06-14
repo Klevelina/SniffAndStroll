@@ -29,4 +29,8 @@ class WalkSession extends Model
     {
         return $this->belongsTo(Dog::class);
     }
+    public function review()
+    {
+        return $this->hasOne(Review::class);
+    }
 }

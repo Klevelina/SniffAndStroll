@@ -9,9 +9,8 @@ class WalkerController extends Controller
 {
     public function dashboard()
     {
-        $walks = auth()->user()
-            ->walkingSessions()
-            ->with(['dog', 'owner'])
+        $walks = WalkSession::with(['dog', 'owner', 'review'])
+            ->where('walker_id', auth()->id())
             ->latest()
             ->get();
 
