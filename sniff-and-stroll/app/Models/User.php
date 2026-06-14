@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -44,6 +45,17 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+        ];
+    }
+
+    public const ROLE_OWNER = 'owner';
+    public const ROLE_WALKER = 'walker';
+
+    public static function roles(): array
+    {
+        return [
+            self::ROLE_OWNER,
+            self::ROLE_WALKER,
         ];
     }
 
@@ -81,5 +93,15 @@ class User extends Authenticatable
     public function reviewCount()
     {
         return $this->receivedReviews()->count();
+    }
+
+    public function isOwner(): bool
+    {
+        return $this->role === self::ROLE_OWNER;
+    }
+
+    public function isWalker(): bool
+    {
+        return $this->role === self::ROLE_WALKER;
     }
 }
