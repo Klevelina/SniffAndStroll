@@ -9,7 +9,7 @@
 
     <input type="number" name="age" placeholder="Age">
 
-    <textarea name="notes"></textarea>
+    <textarea name="notes" placeholder="Notes"></textarea>
 
     <button type="submit">Save Dog</button>
 </form>

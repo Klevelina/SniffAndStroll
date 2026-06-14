@@ -1,13 +1,18 @@
 <h1>My Dogs</h1>
 
-<a href="{{ route('dogs.create') }}">
-    Add Dog
-</a>
+<a href="{{ route('dogs.create') }}">Add Dog</a>
 
-<ul>
-    @foreach($dogs as $dog)
-        <li>
-            {{ $dog->name }}
-        </li>
-    @endforeach
-</ul>
+@foreach($dogs as $dog)
+    <div>
+        <h3>{{ $dog->name }}</h3>
+        <p>{{ $dog->breed }}</p>
+
+        <a href="{{ route('dogs.edit', $dog) }}">Edit</a>
+
+        <form method="POST" action="{{ route('dogs.destroy', $dog) }}">
+            @csrf
+            @method('DELETE')
+            <button>Remove</button>
+        </form>
+    </div>
+@endforeach
