@@ -69,7 +69,7 @@ class User extends Authenticatable
         return $this->hasMany(WalkSession::class, 'owner_id');
     }
 
-    public function walkingSessions()
+    public function walkSessions()
     {
         return $this->hasMany(WalkSession::class, 'walker_id');
     }
