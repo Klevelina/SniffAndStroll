@@ -24,6 +24,7 @@
             <a href="{{ route('language.switch', 'en') }}">EN</a>
             <a href="{{ route('language.switch', 'lv') }}">LV</a>
 
+
             @auth
                 @php
                     $user = auth()->user();

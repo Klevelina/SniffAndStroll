@@ -10,6 +10,12 @@
         <a href="{{ route('dogs.index') }}">Dogs</a>
         <a href="{{ route('walk-sessions.create') }}">Book Walk</a>
 
+        @if(auth()->user()->role === 'owner')
+            <a href="{{ route('walker.index') }}" class="text-sm">
+                Find Walkers
+            </a>
+        @endif
+
         @include('profile.partials.profile-dropdown')
     </div>
 

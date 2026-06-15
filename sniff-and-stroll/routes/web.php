@@ -42,6 +42,18 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'role:admin'])->name('admin.dashboard');
 
+Route::prefix('admin')
+    ->middleware(['auth', 'role:admin'])
+    ->group(function () {
+
+        Route::get('/dashboard', [AdminDashboardController::class, 'index']);
+
+        Route::get('/users', [AdminUserController::class, 'index']);
+        Route::delete('/users/{user}', [AdminUserController::class, 'destroy']);
+
+        Route::get('/walks', [AdminWalkController::class, 'index']);
+        Route::patch('/walks/{walkSession}/status', [AdminWalkController::class, 'updateStatus']);
+    });
 /*
 |--------------------------------------------------------------------------
 | Owner Dashboard
@@ -65,12 +77,10 @@ Route::get('/walker/dashboard', [WalkerController::class, 'dashboard'])
 | Walker Listing (public page)
 |--------------------------------------------------------------------------
 */
-Route::get('/walker', function () {
 
-    $walkers = \App\Models\User::where('role', 'walker')->get();
-
-    return view('walker.index', compact('walkers'));
-});
+Route::get('/walkers', [WalkerController::class, 'index'])
+    ->middleware(['auth', 'role:owner'])
+    ->name('walker.index');
 
 /*
 |--------------------------------------------------------------------------
