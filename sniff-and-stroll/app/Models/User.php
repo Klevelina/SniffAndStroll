@@ -85,7 +85,6 @@ class User extends Authenticatable
         return $this->hasMany(Review::class, 'walker_id');
     }
 
-
     public function averageRating()
     {
         return round($this->receivedReviews()->avg('rating') ?? 0, 1);
