@@ -2,24 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-    public function show()
-    {
-        return view('profile.show');
-    }
-
-    /**
-     * Display the user's profile form.
-     */
-    public function edit(Request $request): View
+    public function edit(Request $request)
     {
         return view('profile.edit', [
             'user' => $request->user(),
@@ -27,50 +16,69 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the user's profile information.
+     * Normal profile update (name, email, bio)
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request)
     {
         $user = $request->user();
 
-        $user->fill($request->validated());
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255'],
+            'bio' => ['nullable', 'string', 'max:1000'],
+        ]);
+
+        $user->fill($validated);
 
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;
         }
 
-        if ($request->hasFile('profile_photo')) {
-
-            $path = $request->file('profile_photo')
-                ->store('profile-photos', 'public');
-
-            $user->profile_photo = $path;
-        }
-
         $user->save();
 
-        return Redirect::route('profile.edit')
-            ->with('status', 'profile-updated');
+        return back()->with('status', 'profile-updated');
     }
 
     /**
-     * Delete the user's account.
+     * AJAX avatar upload
      */
-    public function destroy(Request $request): RedirectResponse
+    public function uploadPhoto(Request $request)
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
+        $request->validate([
+            'profile_photo' => ['required', 'image', 'max:2048'],
         ]);
 
-        $user = $request->user();
+        $user = auth()->user();
 
-        Auth::logout();
+        // delete old image if exists
+        if ($user->profile_photo) {
+            \Storage::disk('public')->delete($user->profile_photo);
+        }
 
-        $user->delete();
+        $path = $request->file('profile_photo')
+            ->store('profile-photos', 'public');
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        $user->profile_photo = $path;
+        $user->save();
 
-        return Redirect::to('/');
+        return response()->json([
+            'url' => $user->profilePhotoUrl(),
+        ]);
+    }
+
+    public function deletePhoto()
+    {
+        $user = auth()->user();
+
+        if ($user->profile_photo) {
+            \Storage::disk('public')->delete($user->profile_photo);
+        }
+
+        $user->profile_photo = null;
+        $user->save();
+
+        return response()->json([
+            'url' => $user->profilePhotoUrl(),
+        ]);
     }
 }
