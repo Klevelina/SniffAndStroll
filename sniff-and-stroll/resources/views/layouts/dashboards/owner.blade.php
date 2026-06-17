@@ -10,7 +10,7 @@
 
 @include('partials.dashboards.owner-navbar')
 
-<main class="p-6">
+<main class="lg:p-6">
     @yield('content')
 </main>
 
