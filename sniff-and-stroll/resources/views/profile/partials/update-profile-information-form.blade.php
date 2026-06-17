@@ -13,9 +13,23 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="mt-6 space-y-6">
         @csrf
         @method('patch')
+
+        <div>
+            <label for="profile_photo">
+                Profile Photo
+            </label>
+
+            <input
+                type="file"
+                name="profile_photo"
+                id="profile_photo"
+                accept="image/*"
+            >
+        </div>
+
 
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -33,7 +47,7 @@
                     <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
                         {{ __('Your email address is unverified.') }}
 
-                        <button form="send-verification" class="px-4 py-2 bg-[#538338] text-white rounded-lg font-semibold hover:bg-[#456F2D] transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#95B85A]"></button>
+                        <button form="send-verification" class="px-4 py-2 bg-[#538338] text-white rounded-lg font-semibold hover:bg-[#456F2D] transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#95B85A]">
                             {{ __('Click here to re-send the verification email.') }}
                         </button>
                     </p>

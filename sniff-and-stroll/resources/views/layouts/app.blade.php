@@ -9,7 +9,7 @@
 
 @include('partials.navbar')
 
-<main class="p-6 bg-[#4A654A]">
+<main class="max-w-1/2 px- bg-[#4A654A]">
     @yield('content')
 </main>
 

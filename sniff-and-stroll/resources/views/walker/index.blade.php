@@ -8,7 +8,7 @@
         Browse available walkers and book your next walk.
     </p>
 
-    {{-- FILTER --}}
+
     <form method="GET" style="margin: 20px 0; display:flex; gap:10px;">
         <input
             type="datetime-local"
@@ -21,7 +21,7 @@
         </button>
     </form>
 
-    {{-- RESULTS --}}
+
     @forelse($walkers as $walker)
 
         <div style="border:1px solid #ddd; padding:15px; margin-bottom:15px; border-radius:6px;">
@@ -39,14 +39,14 @@
                 {{ $walker->walk_sessions_count }} walks completed
             </p>
 
-            {{-- OPTIONAL INFO --}}
+
             @if(method_exists($walker, 'availabilities'))
                 <p style="color:#666;">
                     Available slots: {{ $walker->availabilities->count() }}
                 </p>
             @endif
 
-            {{-- ACTIONS --}}
+
             <div style="margin-top:10px; display:flex; gap:10px;">
 
                 <a href="#"
@@ -67,7 +67,7 @@
         <p>No walkers found.</p>
     @endforelse
 
-    {{-- PAGINATION --}}
+
     <div style="margin-top:20px;">
         {{ $walkers->links() }}
     </div>

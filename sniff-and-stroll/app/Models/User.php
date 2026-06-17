@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'profile_photo',
     ];
 
     /**
@@ -103,5 +104,12 @@ class User extends Authenticatable
     public function isWalker(): bool
     {
         return $this->role === self::ROLE_WALKER;
+    }
+
+    public function profilePhotoUrl(): string
+    {
+        return $this->profile_photo
+            ? asset('storage/' . $this->profile_photo)
+            : asset('images/default-profile.png');
     }
 }
